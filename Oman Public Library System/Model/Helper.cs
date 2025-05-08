@@ -44,11 +44,14 @@ namespace Oman_Public_Library_System.Model
 
         public void OverDue()
         {
-            //foreach (var item in borrows)
-            //{
-            //    Console.WriteLine(item.BorrowDate> DateTime.Now);
-            //}
-            
+            foreach (var item in borrows)
+            {
+                if(item.BorrowDate>DateTime.Now.ToString("yyyy-mm-dd"))
+                {
+                    Console.WriteLine(item.ToString());
+                }
+            }
+
         }
     }
 }

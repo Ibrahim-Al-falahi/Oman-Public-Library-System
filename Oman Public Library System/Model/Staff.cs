@@ -11,7 +11,6 @@ namespace Oman_Public_Library_System.Model
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string[] Member { get; set; }
 
         List<Member> members;
 
