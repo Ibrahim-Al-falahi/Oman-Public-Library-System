@@ -36,8 +36,8 @@ namespace Oman_Public_Library_System
 
             Staff staff2 = new Staff(2, "Ali");
 
-
-            while (true)
+            string choice = "0";
+            while (choice!="7")
             {
 
                 Console.WriteLine("1. Register New Member");
@@ -49,7 +49,7 @@ namespace Oman_Public_Library_System
                 Console.WriteLine("7. Exit");
 
 
-                string choice = Console.ReadLine();
+                 choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
