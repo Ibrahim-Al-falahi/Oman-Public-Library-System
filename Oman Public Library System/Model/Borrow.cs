@@ -11,12 +11,20 @@ namespace Oman_Public_Library_System.Model
         public int Id { get; set; }
         public DateOnly BorrowDate { get; set; }
         public bool Returned { get; set; }
-        public Borrow(int id, DateOnly borrowDate, bool returned)
+        public int BookId { get; set; }
+        public int MemberId { get; set; }
+        public Borrow(int id, DateOnly borrowDate, bool returned, int bookId, int memberId)
         {
             Id = id;
             BorrowDate = borrowDate;
             Returned = returned;
+            BookId = bookId;
+            MemberId = memberId;    
         }
+
+        
+
+
 
 
 
