@@ -18,19 +18,80 @@ namespace Oman_Public_Library_System
             Book book = new Book(1, "1999-22-525-69", "Space", "Mark");
             Borrow borrow = new Borrow(1, new DateOnly(2024, 10, 29), true, 1, 1);
 
-            staff.AddMember(m);
-            library.AddBook(book);
-            helper.Add(borrow);
+            Book book1 = new Book(1, "1999-22-525-69", "Space", "Mark");
 
-            int mid=int.Parse(Console.ReadLine());
-            int bid = int.Parse(Console.ReadLine());
-            helper.ReturnBook(mid, bid);
+            Book book2 = new Book(2, "1999-22-525-69", "Space", "Mark");
+
+            Book book3 = new Book(3, "1999-22-525-69", "Space", "Mark");
 
 
-            int target = int.Parse(Console.ReadLine());
-            helper.View(target);
+            Member member1 = new Member("Yas", 1, new DateOnly(1999, 5, 1));
 
-            //helper.OverDue();
+            Member member2 = new Member("hadeel", 2, new DateOnly(1999, 5, 1));
+
+            Member member3 = new Member("ahmed", 3, new DateOnly(1999, 5, 1));
+
+
+            Staff staff1 = new Staff(1, "Ahmed");
+
+            Staff staff2 = new Staff(2, "Ali");
+
+
+            while (true)
+            {
+
+                Console.WriteLine("1. Register New Member");
+                Console.WriteLine("2. Add New Book");
+                Console.WriteLine("3. Borrow Book");
+                Console.WriteLine("4. Return Book");
+                Console.WriteLine("5. View Member Borrowed Books");
+                Console.WriteLine("6. Show Overdue Books");
+                Console.WriteLine("7. Exit");
+
+
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        staff.AddMember(m);
+                        break;
+                    case "2":
+                        library.AddBook(book);
+                        break;
+                    case "3":
+                        helper.Add(borrow);
+                        break;
+                    case "4":
+                        int mid = int.Parse(Console.ReadLine());
+                        int bid = int.Parse(Console.ReadLine());
+                        helper.ReturnBook(mid, bid);
+                        break;
+                    case "5":
+                        int target = int.Parse(Console.ReadLine());
+                        helper.View(target);
+                        break;
+                    case "6":
+                        //helper.OverDue();
+                        break;
+
+                    case "7":
+                        break;
+
+                }
+
+
+            }
+
+            
+            
+            
+
+            
+
+
+            
+
+            
             
 
         }
