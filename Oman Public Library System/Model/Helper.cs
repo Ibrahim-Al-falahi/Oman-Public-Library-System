@@ -32,13 +32,20 @@ namespace Oman_Public_Library_System.Model
             return false;
         }
 
-        public void View(int id)
+        public void View(int id,Staff s)
         {
             foreach (var item in borrows)
             {
-                if(item.MemberId==id)
-                Console.WriteLine(item.ToString());
-                else Console.WriteLine("No Books borrowed");
+                
+                    foreach (var item1 in s.members)
+                    {
+                        if(item1.Id == id)
+                        Console.WriteLine(item1.Id + " - "+item1.Name);
+                    else Console.WriteLine("No Books borrowed");
+                }
+                
+                
+                
             }
         }
 
@@ -46,9 +53,13 @@ namespace Oman_Public_Library_System.Model
         {
             foreach (var item in borrows)
             {
-                if(item.BorrowDate>DateTime.Now.ToString("yyyy-mm-dd"))
+                if(item.BorrowDate> DateOnly.FromDateTime(DateTime.Now))
                 {
                     Console.WriteLine(item.ToString());
+                }
+                else
+                {
+                    Console.WriteLine("No Overdue");
                 }
             }
 

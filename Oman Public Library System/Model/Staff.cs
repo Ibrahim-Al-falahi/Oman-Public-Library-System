@@ -12,7 +12,7 @@ namespace Oman_Public_Library_System.Model
         public int Id { get; set; }
         public string Name { get; set; }
 
-        List<Member> members;
+        public List<Member> members;
 
         public Staff(int id, string name)
         {

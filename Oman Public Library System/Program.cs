@@ -37,6 +37,9 @@ namespace Oman_Public_Library_System
             Staff staff2 = new Staff(2, "Ali");
 
             string choice = "0";
+            int MemberId = 0;
+            int BookId = 0;
+            int BorrowId = 0;
             while (choice!="7")
             {
 
@@ -47,19 +50,54 @@ namespace Oman_Public_Library_System
                 Console.WriteLine("5. View Member Borrowed Books");
                 Console.WriteLine("6. Show Overdue Books");
                 Console.WriteLine("7. Exit");
-
+                
 
                  choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
-                        staff.AddMember(m);
+                        string name =Console.ReadLine();
+                        DateOnly date =DateOnly.Parse(Console.ReadLine());
+
+                        staff.AddMember(new Member(name, MemberId++,date));
                         break;
                     case "2":
-                        library.AddBook(book);
+                        Console.WriteLine("--- Add New Book ----");
+
+                        string ISBN = Console.ReadLine();
+
+                        Console.WriteLine(ISBN);
+
+
+
+                        string Title = Console.ReadLine();
+
+                        Console.WriteLine(Title);
+
+
+                        string Author = Console.ReadLine();
+
+                        Console.WriteLine(Author);
+
+                        Console.WriteLine("Book added Succesfully");
+                        library.AddBook(new Book(BookId++, ISBN, Title, Author));
                         break;
                     case "3":
-                        helper.Add(borrow);
+                        Console.WriteLine("--- Borrow Book ----");
+
+                        int MemberId_ = Convert.ToInt32(Console.ReadLine());
+                        int BookId_ = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine(MemberId);
+
+
+                        DateOnly date_target = new(Convert.ToDateTime(Console.ReadLine());
+
+                        Console.WriteLine(date_target);
+
+
+                        Console.WriteLine("Book borrowed Succesfully");
+                        helper.Add(new Borrow(BorrowId++, date_target, false,MemberId_,BookId_));
                         break;
                     case "4":
                         int mid = int.Parse(Console.ReadLine());
@@ -68,13 +106,14 @@ namespace Oman_Public_Library_System
                         break;
                     case "5":
                         int target = int.Parse(Console.ReadLine());
-                        helper.View(target);
+                        helper.View(target, staff);
                         break;
                     case "6":
-                        //helper.OverDue();
+                        helper.OverDue();
                         break;
 
                     case "7":
+                        Console.WriteLine("Bye");
                         break;
 
                 }
